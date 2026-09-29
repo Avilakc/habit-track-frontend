@@ -1,0 +1,84 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.title {
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+/* ---------- Summary numbers ---------- */
+
+.summary {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stat {
+  display: flex;
+  /* <dt> must come first in the HTML, but the number should appear on top */
+  flex-direction: column-reverse;
+  gap: 4px;
+  padding: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+}
+
+.stat dt {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.stat dd {
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* ---------- Heatmap + list ---------- */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 42px;
+  }
+
+  .stat {
+    padding: 20px;
+  }
+
+  .stat dd {
+    font-size: 36px;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+}

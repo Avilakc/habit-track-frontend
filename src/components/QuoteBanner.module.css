@@ -1,0 +1,41 @@
+.card {
+  margin: 0; /* <figure> comes with default margins */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-radius: 20px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-on-dark-muted);
+}
+
+.quote {
+  margin: 0; /* <blockquote> is indented by default */
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.author {
+  font-size: 14px;
+  color: var(--color-on-dark-muted);
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 28px 32px;
+    border-radius: var(--radius-xl);
+  }
+
+  .quote {
+    font-size: 22px;
+  }
+}

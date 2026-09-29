@@ -1,69 +1,36 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import { apiFetch, Habit, LogEntry } from "@/lib/api";
+import { formatLongDate, getTodayDateString, getWeekDates } from "@/lib/date";
+import HabitList from "@/components/HabitList";
+import AddHabitForm from "@/components/AddHabitForm";
+import QuoteBanner from "@/components/QuoteBanner";
 
-export default function Home() {
+export default async function Home() {
+  const weekDates = getWeekDates(getTodayDateString());
+
+  // Both requests are independent, so they run at the same time
+  const [habits, weekLogs] = await Promise.all([
+    apiFetch<Habit[]>("/habits"),
+    apiFetch<LogEntry[]>(`/logs?from=${weekDates[0]}&to=${weekDates[6]}`),
+  ]);
+
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      <header className={styles.header}>
+        <div className={styles.headerText}>
+          <span className={styles.date}>{formatLongDate(new Date())}</span>
+          <h1 className={styles.title}>Today</h1>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+        <AddHabitForm />
+      </header>
+
+      <HabitList
+        key={habits.map((habit) => habit.id).join("-")}
+        initialHabits={habits}
+        weekLogs={weekLogs}
+      >
+        <QuoteBanner />
+      </HabitList>
     </div>
   );
 }

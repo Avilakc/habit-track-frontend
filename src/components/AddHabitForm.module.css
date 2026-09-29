@@ -1,0 +1,243 @@
+/* ---------- Triggers ---------- */
+
+.fab {
+  position: fixed;
+  z-index: 20; /* above the bottom nav (z-index: 10) */
+  left: 50%;
+  bottom: calc(var(--bottom-nav-height) - 28px);
+  transform: translateX(-50%);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 18px;
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 8px 20px rgb(29 28 26 / 0.18);
+  cursor: pointer;
+}
+
+.desktopTrigger {
+  display: none;
+}
+
+/* ---------- Dialog: bottom sheet on mobile ---------- */
+
+.dialog {
+  width: 100%;
+  max-width: 100%;
+  max-height: 90dvh;
+  margin: auto 0 0; /* pins it to the bottom of the screen */
+  padding: 0;
+  border: none;
+  border-radius: 24px 24px 0 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.dialog::backdrop {
+  background: rgb(29 28 26 / 0.45);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 20px 28px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.closeButton {
+  width: var(--touch-target);
+  height: var(--touch-target);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background: var(--color-bg);
+}
+
+/* ---------- Fields ---------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font: inherit;
+  font-size: 16px; /* 16px+ stops iOS Safari from auto-zooming on focus */
+}
+
+.fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.fieldset .label {
+  margin-bottom: 8px;
+}
+
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 8px;
+}
+
+/* ---------- Icon option (radio + tile) ---------- */
+
+.option {
+  position: relative;
+  cursor: pointer;
+}
+
+.option input {
+  /* invisible, but still focusable and clickable */
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 4px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-muted);
+  font-size: 12px;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.option input:checked + .tile {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.option input:focus-visible + .tile {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Feedback + actions ---------- */
+
+.error {
+  font-size: 14px;
+  color: #9b2c2c;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.secondaryButton,
+.primaryButton {
+  min-height: var(--touch-target);
+  padding: 0 18px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondaryButton {
+  border: 1px solid var(--color-line);
+  background: transparent;
+}
+
+.primaryButton {
+  border: none;
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.primaryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Desktop ---------- */
+
+@media (min-width: 1024px) {
+  .fab {
+    display: none;
+  }
+
+  .desktopTrigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 14px;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .desktopTrigger:hover {
+    background: var(--color-accent-hover);
+  }
+
+  .dialog {
+    max-width: 480px;
+    margin: auto; /* centered modal */
+    border-radius: var(--radius-xl);
+  }
+
+  .content {
+    padding: 28px;
+  }
+}

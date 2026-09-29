@@ -1,0 +1,78 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 20px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.days {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  border-radius: 14px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.number {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+/* ---------- Status ---------- */
+
+.day[data-status="full"] .dot {
+  background: var(--color-accent);
+}
+
+.day[data-status="partial"] .dot {
+  background: var(--color-partial);
+}
+
+.day[data-status="future"] .number {
+  color: #6e685c;
+}
+
+/* ---------- Today ---------- */
+
+.day[aria-current="date"] {
+  background: var(--color-accent);
+}
+
+.day[aria-current="date"] .label,
+.day[aria-current="date"] .number {
+  color: #fff;
+}
+
+.day[aria-current="date"]:not([data-status="none"]) .dot {
+  background: #fff;
+}

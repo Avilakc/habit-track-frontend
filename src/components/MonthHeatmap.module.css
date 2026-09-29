@@ -1,0 +1,90 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 20px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ---------- Levels ---------- */
+
+.cell[data-level="0"] {
+  background: var(--color-track);
+  color: var(--color-muted);
+}
+
+.cell[data-level="1"] {
+  background: color-mix(in srgb, var(--color-accent) 25%, var(--color-surface));
+}
+
+.cell[data-level="2"] {
+  background: color-mix(in srgb, var(--color-accent) 50%, var(--color-surface));
+}
+
+.cell[data-level="3"] {
+  background: color-mix(in srgb, var(--color-accent) 80%, var(--color-surface));
+  color: #fff;
+}
+
+.cell[data-level="4"] {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.cell[data-level="future"] {
+  border: 1.5px dashed #cfc8b8;
+  color: #6e685c;
+}
+
+.cell[aria-current="date"] {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 1px;
+}
+
+/* ---------- Legend ---------- */
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.swatch {
+  width: 14px;
+  height: 14px;
+  aspect-ratio: auto;
+  border-radius: 4px;
+}

@@ -1,0 +1,76 @@
+.dialog {
+  width: calc(100% - 32px);
+  max-width: 400px;
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.dialog::backdrop {
+  background: rgb(29 28 26 / 0.45);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+}
+
+.title {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-muted);
+  overflow-wrap: anywhere;
+}
+
+.text strong {
+  color: var(--color-ink);
+}
+
+.error {
+  font-size: 14px;
+  color: var(--color-danger);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.secondaryButton,
+.dangerButton {
+  min-height: var(--touch-target);
+  padding: 0 18px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondaryButton {
+  border: 1px solid var(--color-line);
+  background: transparent;
+}
+
+.dangerButton {
+  border: none;
+  background: var(--color-danger);
+  color: #fff;
+}
+
+.secondaryButton:disabled,
+.dangerButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

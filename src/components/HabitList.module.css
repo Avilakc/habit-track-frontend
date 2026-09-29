@@ -1,0 +1,90 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--color-muted);
+  background: var(--color-surface);
+  border: 1px dashed var(--color-line);
+  border-radius: var(--radius-lg);
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .listSection {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .summary {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: 40px;
+  }
+}
+
+.listSection > figure {
+  margin-top: 14px;
+}
+
+.editButton {
+  min-height: var(--touch-target);
+  padding: 0 12px;
+  margin-right: -12px; /* aligns the text with the cards' right edge */
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  background: var(--color-accent-soft);
+}
