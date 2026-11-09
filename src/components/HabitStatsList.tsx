@@ -1,3 +1,5 @@
+// AI assistance: Claude (Anthropic) helped design the UI, reviewed this code and helped fix bugs where needed.
+
 import { HabitStat } from "@/lib/stats";
 import { HabitIcon } from "./Icons";
 import styles from "./HabitStatsList.module.css";

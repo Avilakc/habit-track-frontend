@@ -1,3 +1,5 @@
+// AI assistance: Claude (Anthropic) helped design the UI, reviewed this code and helped fix bugs where needed.
+
 import { DayStat } from "@/lib/stats";
 import { getDaysSinceMonday } from "@/lib/date";
 import styles from "./MonthHeatmap.module.css";

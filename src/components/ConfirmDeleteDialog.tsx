@@ -1,3 +1,5 @@
+// AI assistance: Claude (Anthropic) helped design the UI, reviewed this code and helped fix bugs where needed.
+
 import { useEffect, useId, useRef } from "react";
 import styles from "./ConfirmDeleteDialog.module.css";
 

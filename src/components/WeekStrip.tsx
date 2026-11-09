@@ -1,3 +1,5 @@
+// AI assistance: Claude (Anthropic) helped design the UI, reviewed this code and helped fix bugs where needed.
+
 import styles from "./WeekStrip.module.css";
 
 export interface WeekDay {

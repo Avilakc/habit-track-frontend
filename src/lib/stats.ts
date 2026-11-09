@@ -1,3 +1,5 @@
+// AI assistance: Claude (Anthropic) reviewed this code and helped fix bugs where needed.
+
 import { Habit, LogEntry } from "./api";
 
 // 0 = nothing done, 4 = everything done

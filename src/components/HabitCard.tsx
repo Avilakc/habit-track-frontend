@@ -1,3 +1,5 @@
+// AI assistance: Claude (Anthropic) helped design the UI, reviewed this code and helped fix bugs where needed.
+
 import { Habit } from "@/lib/api";
 import { CheckIcon, HabitIcon, TrashIcon } from "./Icons";
 import styles from "./HabitCard.module.css";

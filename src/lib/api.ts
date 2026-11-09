@@ -1,3 +1,5 @@
+// AI assistance: Claude (Anthropic) reviewed this code and helped fix bugs where needed.
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export interface Habit {

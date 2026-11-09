@@ -1,3 +1,5 @@
+// AI assistance: Claude (Anthropic) helped design the UI, reviewed this code and helped fix bugs where needed.
+
 import { apiFetch } from "@/lib/api";
 import styles from "./QuoteBanner.module.css";
 

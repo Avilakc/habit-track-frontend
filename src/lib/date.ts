@@ -1,3 +1,5 @@
+// AI assistance: Claude (Anthropic) reviewed this code and helped fix bugs where needed.
+
 // Example output: "Sunday, September 27"
 export function formatLongDate(date: Date): string {
   return date.toLocaleDateString("en-US", {
